@@ -1,0 +1,29 @@
+--- General Python/Virtual Environment Files ---
+Virtual environment folders (Crucial! Render create their own environment)
+.venv/
+venv/
+env/
+pycache/
+
+Compiled Python files
+*.pyc
+*.o
+*.pyd
+
+--- Project Specific Files (CRITICAL for Security/Deployment) ---
+1. Environment Variables (Your secrets)
+This file contains your Cloudinary keys and is a security risk if committed.
+.env
+
+2. Local Database Files
+Your local SQLite database file must NOT be pushed.
+media.db
+*.sqlite3
+*.db
+
+--- Operating System & IDE Files ---
+macOS files
+.DS_Store
+
+VS Code IDE files (Optional, but recommended)
+.vscode/

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Options</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f2f5;
+            text-align: center;
+        }
+        .main-container {
+            padding: 40px;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .btn {
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: 600;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin: 0 10px;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .view-btn { background-color: #007bff; }
+        .upload-btn { background-color: #28a745; }
+        a { text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <h1>Image Options</h1>
+        <p>What would you like to do?</p>
+        <div>
+            <a href="{{ url_for('view_img') }}"><button class="btn view-btn">🖼️ View Images</button></a>
+            
+            <a href="{{ url_for('upload_img') }}"><button class="btn upload-btn">⬆️ Add an Image</button></a>
+        </div>
+    </div>
+</body>
+</html>
