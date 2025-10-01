@@ -45,6 +45,7 @@ class Media(db.Model):
     # The Column function takes the type directly as its first argument
     file_url = db.Column(db.String(200), nullable=False)
     media_type = db.Column(db.String(10), nullable=False)
+    pass
 
 with app.app_context():
     # This creates tables locally. We will run this manually on Render/Koyeb later.
