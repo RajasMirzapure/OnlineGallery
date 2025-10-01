@@ -93,9 +93,6 @@ def upload_img():
 def vid():
     return render_template("vid.html")
 
-# The entry point for local execution, ignored in production by Gunicorn
 if __name__ == '__main__':
     app.run(debug=True, port=5001)
 
-# Ensure this file (back.py) is importable by the wsgi.py file
-# (which should contain: from back import app as application)
