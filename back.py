@@ -42,8 +42,9 @@ cloudinary.config(
 
 class Media(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    file_url = db.Column(os.path.join(db.String(200)), nullable=False)
-    media_type = db.Column(os.path.join(db.String(10)), nullable=False)
+    # The Column function takes the type directly as its first argument
+    file_url = db.Column(db.String(200), nullable=False)
+    media_type = db.Column(db.String(10), nullable=False)
 
 with app.app_context():
     # This creates tables locally. We will run this manually on Render/Koyeb later.
