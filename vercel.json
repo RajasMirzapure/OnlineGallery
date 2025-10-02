@@ -1,0 +1,11 @@
+{
+  "rewrites": [
+    {
+      "source": "/",
+      "destination": "/front.html"
+    }
+  ],
+  "build": {
+    "dir": "templates"
+  }
+}
