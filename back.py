@@ -64,8 +64,10 @@ def img():
 
 @app.route("/image/see") 
 def view_img(): 
-    all_images = Media.query.filter_by(media_type='image').all() # Convert list of objects to JSON data image_list = [{'id': img.id, 'file_url': img.file_url, 'media_type': img.media_type} for img in all_images] return jsonify(image_list)
-
+    all_images = Media.query.filter_by(media_type='image').all()
+    # Convert list of objects to JSON data
+    image_list = [{'id': img.id, 'file_url': img.file_url, 'media_type': img.media_type} for img in all_images]
+    return jsonify(image_list)
 
 @app.route("/image/add", methods=['GET','POST'])
 def upload_img():
