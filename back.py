@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for, flash, jsonify
+from flask import Flask, render_template, request, redirect, url_for, flash
 from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
 import os
@@ -56,18 +56,18 @@ with app.app_context():
 @app.route("/")
 def home():
     # Note: This route might be redundant if Vercel handles all front-end routing
-    return jsonify({"status": "OnlineGallery API is running"}), 200
+    return render_template("front.html") 
 
 @app.route("/image")
 def img():
-    return jsonify({"message": "Image options API is active"}), 200
+    return render_template("image.html") 
 
-@app.route("/image/see") 
-def view_img(): 
+@app.route("/image/see")
+def view_img():
+    # Ensure this query works with PostgreSQL.
     all_images = Media.query.filter_by(media_type='image').all()
-    # Convert list of objects to JSON data
-    image_list = [{'id': img.id, 'file_url': img.file_url, 'media_type': img.media_type} for img in all_images]
-    return jsonify(image_list)
+    return render_template('see.html', all_images=all_images)
+
 
 @app.route("/image/add", methods=['GET','POST'])
 def upload_img():
@@ -92,7 +92,7 @@ def upload_img():
 
 @app.route("/video")
 def vid():
-    return jsonify({"message": "Video section API is active"}), 200
+    return render_template("vid.html")
 
 if __name__ == '__main__':
     app.run(debug=True, port=5001)
